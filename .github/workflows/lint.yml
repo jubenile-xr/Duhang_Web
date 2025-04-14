@@ -23,15 +23,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: setup for bun
-        uses: oven-sh/setup-bun@v2
+      - uses: mongolyy/reviewdog-action-biome@v1.12
         with:
-          bun-version: latest
-      - name: Install Dependencies
-        run: bun install
-      - name: lint
-        uses: mongolyy/reviewdog-action-biome@v1.12
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
-          filter_mode: added
+          fail_level: "error"
