@@ -23,7 +23,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - uses: mongolyy/reviewdog-action-biome@v1
+      - uses: mongolyy/reviewdog-action-biome@v1.12
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
+          fail_level: "error"
