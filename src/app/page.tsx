@@ -4,14 +4,18 @@ import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Medal, Star, Trophy } from "lucide-react";
 import { yellow } from "next/dist/lib/picocolors";
+import {useEffect, useState} from "react";
+import {apiClient} from "@/lib/apiClient";
+import {RankingType} from "@/types/ranking";
 
 export default function Home() {
-	const players = [
-		{ name: "tyori", animal: "panda", score: 950, time: "2025-10-05" },
-		{ name: "manji", animal: "rabbit", score: 900, time: "2025-10-05" },
-		{ name: "manji", animal: "rabbit", score: 900, time: "2025-10-05" },
-		{ name: "manji", animal: "rabbit", score: 850, time: "2025-10-05" },
-	];
+	// const players = [
+	// 	{ name: "tyori", animal: "panda", score: 950, day: "2025-10-05" },
+	// 	{ name: "manji", animal: "rabbit", score: 900, day: "2025-10-05" },
+	// 	{ name: "manji", animal: "rabbit", score: 900, day: "2025-10-05" },
+	// 	{ name: "manji", animal: "rabbit", score: 850, day: "2025-10-05" },
+	// ];
+	const [rankingData,setRankingData] = useState<RankingType[]>([]);
 
 	const getMedalIcon = (i: number) => {
 		switch (i) {
@@ -39,6 +43,13 @@ export default function Home() {
 		}
 	};
 
+	useEffect(()=>{
+		apiClient.get("").then((res)=>{
+			setRankingData(res.data);
+		})
+
+	})
+
 	return (
 		<div>
 			<div className="mb-6 p-4">
@@ -49,7 +60,7 @@ export default function Home() {
 			</div>
 
 			<Card className="m-auto w-2xl border-green-200 items-center justify-center text-center">
-				{players.map((player, i) => (
+				{rankingData.map((player, i) => (
 					<motion.div
 						key={i}
 						initial={{ opacity: 0, y: 20 }}
@@ -67,7 +78,7 @@ export default function Home() {
 								</div>
 								<div className="ml-10">
 									<div className="font-medium text-lg">{player.name}</div>
-									<div className="text-xs">{player.time}</div>
+									<div className="text-xs">{player.day}</div>
 								</div>
 							</div>
 						</div>
