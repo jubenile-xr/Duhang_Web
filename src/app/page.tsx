@@ -63,9 +63,9 @@ export default function Home() {
 				{rankingData.map((player, i) => (
 					<motion.div
 						key={i}
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: i * 0.1 }}
+						initial={{opacity: 0, y: 20}}
+						animate={{opacity: 1, y: 0}}
+						transition={{delay: i * 0.1}}
 						className={`flex justify-between items-center w-xl ${i === 0 ? "bg-yellow-100" : i < 3 ? "bg-blue-100" : "bg-gray-50"}`}
 					>
 						<div className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm">
@@ -78,7 +78,7 @@ export default function Home() {
 								</div>
 								<div className="ml-10">
 									<div className="font-medium text-lg">{player.name}</div>
-									<div className="text-xs">{player.day}</div>
+									<div className="text-xs">{player.date}</div>
 								</div>
 							</div>
 						</div>
@@ -91,6 +91,13 @@ export default function Home() {
 					</motion.div>
 				))}
 			</Card>
+
+			<div className="mt-6 flex animate-bounce items-center justify-center text-2xl">
+				<span className="mr-2">🐼</span>
+				<span className="mr-2">🐰</span>
+				<span className="mr-2">🐦️</span>
+				<span>🐭</span>
+			</div>
 		</div>
 	);
 }
