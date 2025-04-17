@@ -13,12 +13,6 @@ import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 
-const avatars = {
-    "panda": "🐼",
-    "rabbit": "🐰",
-    "bird": "🐦",
-    "mouse": "🐭",
-};
 
 // 動物名の配列
 const animalsEnum = z.enum(["panda", "rabbit", "bird", "mouse"],{
