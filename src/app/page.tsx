@@ -47,19 +47,19 @@ export default function Home() {
 
 	useEffect(()=>{
 		apiClient.get("").then((res)=>{
-			setRankingData(res.data);
+			const data = res.data;
+			setRankingData(data.sort((a: RankingType, b: RankingType) => {  return b.score - a.score;}).slice(0, 10));
 		})
-
 	})
 
 	return (
 		<div>
-			<div className="mb-6 p-4">
+			<div className="mb-2 p-1">
 				<div className="mb-6 p-4 flex items-center justify-center">
 					<Image src="/panda.png" height={40} width={40} alt="Pandatorアイコン" className="mr-2"/>
 					<h1 className="text-center text-3xl text-green-600">Pandator</h1>
 				</div>
-				<h2 className="text-center text-xl font-medium text-green-500 m-6">
+				<h2 className="text-center text-xl font-medium text-green-500 m-3">
 					ランキング
 				</h2>
 			</div>
