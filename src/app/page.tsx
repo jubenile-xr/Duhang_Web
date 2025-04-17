@@ -7,6 +7,8 @@ import { yellow } from "next/dist/lib/picocolors";
 import {useEffect, useState} from "react";
 import {apiClient} from "@/lib/apiClient";
 import {RankingType} from "@/types/ranking";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import Image from "next/image";
 
 export default function Home() {
 	// const players = [
@@ -33,13 +35,13 @@ export default function Home() {
 	const getAnimalIcon = (animal: string) => {
 		switch (animal) {
 			case "panda":
-				return "🐼";
+				return "panda.png";
 			case "rabbit":
-				return "🐰";
+				return "rabbit.png";
 			case "bird":
-				return "🐦";
+				return "bird.png";
 			case "mouse":
-				return "🐭";
+				return "mouse.png";
 		}
 	};
 
@@ -53,7 +55,10 @@ export default function Home() {
 	return (
 		<div>
 			<div className="mb-6 p-4">
-				<h1 className="text-center text-3xl text-green-600">Pandator</h1>
+				<div className="mb-6 p-4 flex items-center justify-center">
+					<Image src="/panda.png" height={40} width={40} alt="Pandatorアイコン" className="mr-2"/>
+					<h1 className="text-center text-3xl text-green-600">Pandator</h1>
+				</div>
 				<h2 className="text-center text-xl font-medium text-green-500 m-6">
 					ランキング
 				</h2>
@@ -66,7 +71,7 @@ export default function Home() {
 						initial={{opacity: 0, y: 20}}
 						animate={{opacity: 1, y: 0}}
 						transition={{delay: i * 0.1}}
-						className={`flex justify-between items-center w-xl ${i === 0 ? "bg-yellow-100" : i < 3 ? "bg-blue-100" : "bg-gray-50"}`}
+						className={`flex justify-between items-center w-xl h-12 rounded-xl ${i === 0 ? "bg-yellow-100" : i < 3 ? "bg-blue-100" : "bg-gray-50"}`}
 					>
 						<div className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm">
 							{i + 1}
@@ -74,7 +79,11 @@ export default function Home() {
 						<div className="flex-2">
 							<div className="flex items-center ">
 								<div className="ml-20 text-3xl">
-									{getAnimalIcon(player.animal)}
+									{/*{getAnimalIcon(player.animal)}*/}
+									<Avatar>
+										<AvatarImage src={getAnimalIcon(player.animal)} />
+										<AvatarFallback>CN</AvatarFallback>
+									</Avatar>
 								</div>
 								<div className="ml-10">
 									<div className="font-medium text-lg">{player.name}</div>
