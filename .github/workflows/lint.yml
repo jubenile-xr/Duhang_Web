@@ -35,5 +35,5 @@ jobs:
       - name: install dependencies
         run: bun install
       - name: build
-        run: workers:build
+        run: bun workers:build
 
