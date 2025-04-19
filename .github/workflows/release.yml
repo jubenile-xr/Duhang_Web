@@ -1,0 +1,21 @@
+name: Release
+
+on:
+    push:
+      branches:
+        - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup bun
+        uses: antongolub/action-setup-bun@v1
+        with:
+          bun-version: "latest"
+      - name: install dependencies
+        run: bun install
+      - name: build&deploy
+        run: bun workers:build&bun workers:deploy
