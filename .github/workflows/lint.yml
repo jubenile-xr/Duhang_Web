@@ -1,10 +1,10 @@
-name: lint
+name: Lint and Build
 
 on:
-  push:
-    branches:
-      - develop
-      - main
+#  push:
+#    branches:
+#      - develop
+#      - main
   pull_request:
     branches:
       - develop
@@ -28,3 +28,12 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           fail_level: "error"
+      - name: setup bun
+        uses: antongolub/action-setup-bun@v1
+        with:
+          bun-version: "latest"
+      - name: install dependencies
+        run: bun install
+      - name: build
+        run: bun workers:build
+
