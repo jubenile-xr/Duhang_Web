@@ -17,5 +17,9 @@ jobs:
           bun-version: "latest"
       - name: install dependencies
         run: bun install
-      - name: build&deploy
-        run: bun workers:build&bun workers:deploy
+        
+      - name: Build for Cloudflare Workers
+        run: bun workers:build
+
+      - name: Deploy to Cloudflare
+        run: bun workers:deploy
