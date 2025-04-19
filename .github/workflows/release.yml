@@ -17,9 +17,11 @@ jobs:
           bun-version: "latest"
       - name: install dependencies
         run: bun install
-        
+
       - name: Build for Cloudflare Workers
         run: bun workers:build
 
       - name: Deploy to Cloudflare
         run: bun workers:deploy
+        with:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
