@@ -46,28 +46,28 @@ export const RankingCard =(props:Props)=>{
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className={`flex justify-between items-center p-1 w-xl h-12 rounded-xl my-2 ${i === 0 ? "bg-yellow-100" : i < 3 ? "bg-blue-100" : "bg-gray-50"}`}
+                    className={`w-full flex justify-between items-center p-1 h-14 xs:h-12 rounded-xl my-2 ${i === 0 ? "bg-yellow-100" : i < 3 ? "bg-blue-100" : "bg-gray-50"}`}
                 >
-                    <div className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm">
+                    <div className="xs:ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm">
                         {i + 1}
                     </div>
-                    <div className="flex-1">
-                        <div className="flex items-center justify-center">
-                            <div className="mr-3">
+                    <div className="flex-1 ">
+                        <div className="flex items-center justify-center w-full">
+                            <div className="mr-6">
                                 <Avatar>
                                     <AvatarImage src={getAnimalIcon(player.animal)} />
                                     <AvatarFallback>CN</AvatarFallback>
                                 </Avatar>
                             </div>
                             <div>
-                                <div className="font-medium text-lg">{player.name}</div>
+                                <div className="font-medium text-lg ">{player.name}</div>
                                 <div className="text-xs">{player.day}</div>
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex justify-end items-center gap-1">
                         <div>{getMedalIcon(i)}</div>
-                        <div className="mr-10 font-medium text-green-500">
+                        <div className=" font-medium text-green-500">
                             {player.score}
                         </div>
                     </div>

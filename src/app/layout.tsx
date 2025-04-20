@@ -9,7 +9,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50">
+			<body className="max-h-screen bg-green-50">
 				{children}
 			</body>
 		</html>

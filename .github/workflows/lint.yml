@@ -29,9 +29,9 @@ jobs:
           reporter: github-pr-review
           fail_level: "error"
       - name: setup bun
-        uses: antongolub/action-setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         with:
-          bun-version: "latest"
+          bun-version-file: "package.json"
       - name: install dependencies
         run: bun install
       - name: build
