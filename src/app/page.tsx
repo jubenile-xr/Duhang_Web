@@ -30,7 +30,7 @@ export default function Home() {
 	return (
 		<div>
 			<div className="mb-2 p-1">
-				<div className=" p-4 flex items-center justify-center">
+				<div className="p-4 w-full flex items-center justify-center">
 					<Image src="/panda.png" height={40} width={40} alt="Pandatorアイコン" className="mr-2" />
 					<h1 className="text-center text-3xl text-green-600">Pandator</h1>
 				</div>
@@ -50,7 +50,7 @@ export default function Home() {
 				</div>
 			)}
 
-			<Tabs defaultValue="all" className="w-2xl mx-auto">
+			<Tabs defaultValue="all" className="w-xs sm:w-2xl mx-auto">
 				<TabsList className="grid w-full grid-cols-5">
 					<TabsTrigger value="all">全体</TabsTrigger>
 					<TabsTrigger value="panda">パンダ</TabsTrigger>
