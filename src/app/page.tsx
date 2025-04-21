@@ -9,7 +9,8 @@ import {RankingCard} from "@/components/RankingCard";
 
 export default function Home() {
 	const [isLoading, setIsLoading] = useState(true);
-	const [rankingData, setRankingData] = useState<RankingType[]>([]);
+	// const [rankingData, setRankingData] = useState<RankingType[]>([]);
+	const [smallAnimalRankingData, setSmallAnimalRankingData] = useState<RankingType[]>([]);
 	const [pandaRankingData, setPandaRankingData] = useState<RankingType[]>([]);
 	const [rabbitRankingData, setRabbitRankingData] = useState<RankingType[]>([]);
 	const [birdRankingData, setBirdRankingData] = useState<RankingType[]>([]);
@@ -18,7 +19,7 @@ export default function Home() {
 	useEffect(() => {
 		apiClient.get("").then((res) => {
 			const data = res.data;
-			setRankingData(data.sort((a: RankingType, b: RankingType) => b.score - a.score).slice(0, 10));
+			setSmallAnimalRankingData(data.filter((item: RankingType) => item.animal === "mouse" || item.animal === "rabbit" || item.animal === "bird").sort((a: RankingType, b: RankingType) => b.score - a.score).slice(0, 10));
 			setPandaRankingData(data.filter((item: RankingType) => item.animal === "panda").sort((a: RankingType, b: RankingType) => b.score - a.score).slice(0, 10));
 			setRabbitRankingData(data.filter((item: RankingType) => item.animal === "rabbit").sort((a: RankingType, b: RankingType) => b.score - a.score).slice(0, 10));
 			setBirdRankingData(data.filter((item: RankingType) => item.animal === "bird").sort((a: RankingType, b: RankingType) => b.score - a.score).slice(0, 10));
@@ -52,14 +53,14 @@ export default function Home() {
 
 			<Tabs defaultValue="all" className="w-xs sm:w-2xl mx-auto">
 				<TabsList className="grid w-full grid-cols-5">
-					<TabsTrigger value="all">全体</TabsTrigger>
+					<TabsTrigger value="all">小動物全体</TabsTrigger>
 					<TabsTrigger value="panda">パンダ</TabsTrigger>
 					<TabsTrigger value="rabbit">うさぎ</TabsTrigger>
 					<TabsTrigger value="bird">鳥</TabsTrigger>
 					<TabsTrigger value="mouse">ねずみ</TabsTrigger>
 				</TabsList>
 				<TabsContent value="all">
-					<RankingCard rankingData={rankingData} />
+					<RankingCard rankingData={smallAnimalRankingData} />
 				</TabsContent>
 				<TabsContent value="panda">
 					<RankingCard rankingData={pandaRankingData}/>
