@@ -19,6 +19,7 @@ export default function Home() {
 	useEffect(() => {
 		apiClient.get("").then((res) => {
 			const data = res.data;
+			console.log(data);
 			setSmallAnimalRankingData(data.filter((item: RankingType) => item.animal === "mouse" || item.animal === "rabbit" || item.animal === "bird").sort((a: RankingType, b: RankingType) => b.score - a.score).slice(0, 10));
 			setPandaRankingData(data.filter((item: RankingType) => item.animal === "panda").sort((a: RankingType, b: RankingType) => b.score - a.score).slice(0, 10));
 			setRabbitRankingData(data.filter((item: RankingType) => item.animal === "rabbit").sort((a: RankingType, b: RankingType) => b.score - a.score).slice(0, 10));
