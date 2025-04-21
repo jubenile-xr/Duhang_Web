@@ -1,9 +1,9 @@
 name: Release
 
 on:
-    push:
-      branches:
-        - main
+  push:
+    branches:
+      - main
 
 jobs:
   lint:
@@ -18,10 +18,7 @@ jobs:
       - name: install dependencies
         run: bun install
 
-      - name: Build for Cloudflare Workers
-        run: bun workers:build
-
       - name: Deploy to Cloudflare
-        run: bun workers:deploy
+        run: bun workers:build && bun workers:deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
