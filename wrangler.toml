@@ -2,6 +2,7 @@ main = ".open-next/worker.js"
 name = "duhang-web"
 compatibility_date = "2025-04-18"
 compatibility_flags = ["nodejs_compat"]
+schema = "node_modules/wrangler/config-schema.json"
 
 [assets]
 directory = ".open-next/assets"
