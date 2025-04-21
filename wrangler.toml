@@ -1,7 +1,7 @@
 main = ".open-next/worker.js"
 name = "duhang-web"
-compatibility_date = "2025-03-01"
-compatibility_flags = []
+compatibility_date = "2022-04-05"
+compatibility_flags = [ "nodejs_compat" ]
 
 [assets]
 directory = ".open-next/assets"
