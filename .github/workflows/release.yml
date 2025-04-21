@@ -22,3 +22,5 @@ jobs:
         run: bun workers:build && bun workers:deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          NEXT_PUBLIC_GAS_URL: ${{ secrets.NEXT_PUBLIC_GAS_URL }}
+
