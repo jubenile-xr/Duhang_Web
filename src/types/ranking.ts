@@ -4,4 +4,5 @@ export type RankingType = {
     animal: string;
     score: number;
     dateTime: string;
+    winner: boolean;
 }
