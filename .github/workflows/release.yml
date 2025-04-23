@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
+  release:
     runs-on: macos-latest
     steps:
       - name: checkout
