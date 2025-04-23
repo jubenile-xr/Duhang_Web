@@ -3,5 +3,5 @@ export type RankingType = {
     name: string;
     animal: string;
     score: number;
-    day: string;
+    dateTime: string;
 }
