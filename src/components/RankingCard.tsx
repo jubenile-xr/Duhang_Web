@@ -61,7 +61,7 @@ export const RankingCard =(props:Props)=>{
                             </div>
                             <div>
                                 <div className="font-medium text-lg ">{player.name}</div>
-                                <div className="text-xs">{player.day}</div>
+                                <div className="text-xs">{player.dateTime}</div>
                             </div>
                         </div>
                     </div>
