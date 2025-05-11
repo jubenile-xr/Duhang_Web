@@ -8,14 +8,14 @@ export function cn(...inputs: ClassValue[]) {
 export const getAnimalIcon = (animal: string) => {
   switch (animal) {
     case "panda":
-      return "panda.png";
+      return "icon/panda.png";
     case "rabbit":
-      return "rabbit.png";
+      return "/icon/rabbit.png";
     case "bird":
-      return "bird.png";
+      return "/icon/bird.png";
     case "mouse":
-      return "mouse.png";
+      return "/icon/mouse.png";
     default:
-      return "panda.png";
+      return "/icon/panda.png";
   }
 };
