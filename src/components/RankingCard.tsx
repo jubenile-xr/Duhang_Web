@@ -3,25 +3,13 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Card} from "@/components/ui/card";
 import {RankingType} from "@/types/ranking";
 import {Medal, Star, Trophy} from "lucide-react";
+import {getAnimalIcon} from "@/lib/utils";
 
 interface Props {
     rankingData:  RankingType[]
 }
 
-const getAnimalIcon = (animal: string) => {
-    switch (animal) {
-        case "panda":
-            return "panda.png";
-        case "rabbit":
-            return "rabbit.png";
-        case "bird":
-            return "bird.png";
-        case "mouse":
-            return "mouse.png";
-        default:
-            return "panda.png";
-    }
-};
+
 
 const getMedalIcon = (i: number) => {
     switch (i) {
