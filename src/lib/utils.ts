@@ -19,3 +19,7 @@ export const getAnimalIcon = (animal: string) => {
       return "/icon/panda.png";
   }
 };
+
+export const getS3Url = (path: string) =>{
+  return `https://pandator-assets.s3.ap-northeast-3.amazonaws.com${path}`;
+}
