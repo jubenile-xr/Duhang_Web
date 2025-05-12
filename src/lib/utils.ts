@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export const getAnimalIcon = (animal: string) => {
   switch (animal) {
     case "panda":
-      return "icon/panda.png";
+      return "/icon/panda.png";
     case "rabbit":
       return "/icon/rabbit.png";
     case "bird":
