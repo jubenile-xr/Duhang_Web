@@ -6,7 +6,7 @@ import {Card, CardContent, CardHeader} from "@/components/ui/card";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Badge} from "@/components/ui/badge";
 import {getAnimalIcon} from "@/lib/utils";
-import {Loading} from "@/components/Loading";
+import {Loading} from "@/components/loading";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import {ArrowLeft} from "lucide-react";
