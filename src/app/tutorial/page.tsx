@@ -76,7 +76,7 @@ const TutorialPage = () => {
                     </div>
                 </CardHeader>
                 <CardContent className={"flex flex-col justify-center gap-6"}>
-                    <Image src={getS3Url("/pandator-scene.png")} alt={"pandator-scene"} width={800} height={200}/>
+                    <Image src={getS3Url("/pandator-scene.png")} alt={"pandator-scene"} width={800} height={200} className={"mx-auto"}/>
                     <div className={"text-center text-xl"}>ある館での出来事...</div>
                     <div
                         className={"text-center text-xl"}>小動物達はパンダに捕まってしまい、檻に閉じこめられてしまった。
