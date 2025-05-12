@@ -3,10 +3,11 @@ import {Card, CardContent, CardHeader} from "@/components/ui/card";
 import Image from "next/image";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {motion} from "framer-motion";
-import {CharacterCard} from "@/components/CharacterCard";
+import {CharacterCard} from "@/components/character-card";
 import {getS3Url} from "@/lib/utils";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
+import {FadeInSelection} from "@/components/fade-in-selection";
 
 const TutorialPage = () => {
 
@@ -80,6 +81,8 @@ const TutorialPage = () => {
             </div>
 
             <h2 className={"my-5 text-2xl text-green-500 font-medium"}>ストーリー</h2>
+
+            <FadeInSelection>
             <Card className={"sm:w-4xl mx-3"}>
                 <CardHeader>
                     <div className={"flex justify-center text-2xl text-green-500 font-medium"}>
@@ -99,8 +102,11 @@ const TutorialPage = () => {
                     <div className={"text-center text-xl"}>果たして小動物達はパンダから逃げ切れるのか!?</div>
                 </CardContent>
             </Card>
+                </FadeInSelection>
+
 
             <h2 className={"my-10 text-2xl text-green-500 font-medium"}>基本ルール</h2>
+            <FadeInSelection>
             <Card className={"sm:w-4xl mx-3 px-2 flex flex-col justify-center items-center"}>
                 <div className={"text-2xl font-bold"}>パンダ</div>
                 <div>パンダは、逃げ回る小動物達を銃で網を放ち、小動物を捕まえましょう！</div>
@@ -108,10 +114,12 @@ const TutorialPage = () => {
                 <div>小動物達は、パンダから捕まらないように逃げ切りましょう！</div>
                 <div>また、他の小動物へ妨害をして、自分が逃げ切りましょう！</div>
             </Card>
+                </FadeInSelection>
 
 
             <h2 className={"my-10 text-2xl text-green-500 font-medium"}>動物毎の操作方法</h2>
             <div className={"gap-6"}>
+                <FadeInSelection>
                 <CharacterCard animal={"panda"}>
                     <div className={"flex flex-col items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>キャラクター選択</div>
@@ -131,6 +139,9 @@ const TutorialPage = () => {
                     </div>
 
                 </CharacterCard>
+                    </FadeInSelection>
+
+                <FadeInSelection>
                 <CharacterCard animal={"rabbit"}>
                     <div className={"flex flex-col items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>キャラクター選択</div>
@@ -174,6 +185,9 @@ const TutorialPage = () => {
 
                     </div>
                 </CharacterCard>
+                    </FadeInSelection>
+
+                <FadeInSelection>
                 <CharacterCard animal={"bird"}>
                     <div className={"flex flex-col items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>キャラクター選択</div>
@@ -213,6 +227,9 @@ const TutorialPage = () => {
                         </div>
                     </div>
                 </CharacterCard>
+                </FadeInSelection>
+
+                <FadeInSelection>
                 <CharacterCard animal={"mouse"}>
                     <div className={"flex flex-col items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>キャラクター選択</div>
@@ -251,6 +268,7 @@ const TutorialPage = () => {
                         </div>
                     </div>
                 </CharacterCard>
+                </FadeInSelection>
             </div>
 
             {/*<Card className={"w-4xl flex flex-col p-0 border-green-200 border-"}>*/

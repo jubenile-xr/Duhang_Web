@@ -5,8 +5,8 @@ import { apiClient } from "@/lib/apiClient";
 import { RankingType } from "@/types/ranking";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {RankingCard} from "@/components/RankingCard";
-import {Loading} from "@/components/Loading";
+import {RankingCard} from "@/components/ranking-card";
+import {Loading} from "@/components/loading";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 
