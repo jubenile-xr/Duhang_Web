@@ -5,6 +5,8 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {motion} from "framer-motion";
 import {CharacterCard} from "@/components/CharacterCard";
 import {getS3Url} from "@/lib/utils";
+import Link from "next/link";
+import {Button} from "@/components/ui/button";
 
 const TutorialPage = () => {
 
@@ -68,7 +70,16 @@ const TutorialPage = () => {
         <div className={"flex flex-col justify-center items-center"}>
             <h1 className={"text-4xl text-green-500 font-medium"}>チュートリアル</h1>
 
-            <h2 className={"my-10 text-2xl text-green-500 font-medium"}>ストーリー</h2>
+            <div className="m-4 text-center">
+                <Link href="/ranking">
+                    <Button variant="outline" size="sm"
+                            className="gap-1 bg-green-50 hover:bg-green-400 border-green-500">
+                        ランキングを見る
+                    </Button>
+                </Link>
+            </div>
+
+            <h2 className={"my-5 text-2xl text-green-500 font-medium"}>ストーリー</h2>
             <Card className={"sm:w-4xl mx-3"}>
                 <CardHeader>
                     <div className={"flex justify-center text-2xl text-green-500 font-medium"}>
@@ -76,7 +87,8 @@ const TutorialPage = () => {
                     </div>
                 </CardHeader>
                 <CardContent className={"flex flex-col justify-center gap-6"}>
-                    <Image src={getS3Url("/pandator-scene.png")} alt={"pandator-scene"} width={800} height={200} className={"mx-auto"}/>
+                    <Image src={getS3Url("/pandator-scene.png")} alt={"pandator-scene"} width={800} height={200}
+                           className={"mx-auto"}/>
                     <div className={"text-center text-xl"}>ある館での出来事...</div>
                     <div
                         className={"text-center text-xl"}>小動物達はパンダに捕まってしまい、檻に閉じこめられてしまった。
@@ -89,7 +101,7 @@ const TutorialPage = () => {
             </Card>
 
             <h2 className={"my-10 text-2xl text-green-500 font-medium"}>基本ルール</h2>
-            <Card　className={"sm:w-4xl mx-3 px-2 flex flex-col justify-center items-center"}>
+            <Card className={"sm:w-4xl mx-3 px-2 flex flex-col justify-center items-center"}>
                 <div className={"text-2xl font-bold"}>パンダ</div>
                 <div>パンダは、逃げ回る小動物達を銃で網を放ち、小動物を捕まえましょう！</div>
                 <div className={"text-2xl font-bold"}>小動物</div>
@@ -104,13 +116,15 @@ const TutorialPage = () => {
                     <div className={"flex flex-col items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>キャラクター選択</div>
                         <div>銃に接続されているAとBボタンを押してください。</div>
-                        <Image src={getS3Url("/tutorial/game/select.png")} alt={"キャラクター選択画面"} width={400} height={400}/>
+                        <Image src={getS3Url("/tutorial/game/select.png")} alt={"キャラクター選択画面"} width={400}
+                               height={400}/>
 
                     </div>
                     <div className={"my-8 flex flex-col  items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>パンダの操作</div>
                         <div>銃の引き金を引くと網が発射！</div>
-                        <Image src={getS3Url("/tutorial/game/PandaShotGame.gif")} alt={"網が出ている様子"} width={400} height={400}/>
+                        <Image src={getS3Url("/tutorial/game/PandaShotGame.gif")} alt={"網が出ている様子"} width={400}
+                               height={400}/>
                         {/*<div>小動物が網の中に入るように、狙い撃て!</div>*/}
                         {/*<Image src="/RabbitReal.gif" alt={"動物が捕まっている様子"} width={400} height={400}/>*/}
 
@@ -121,7 +135,8 @@ const TutorialPage = () => {
                     <div className={"flex flex-col items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>キャラクター選択</div>
                         <div>選択画面からRabbitを選んでください。</div>
-                        <Image src={getS3Url("/tutorial/game/select.png")} alt={"ウサギを選択してる画像"} width={400} height={400}/>
+                        <Image src={getS3Url("/tutorial/game/select.png")} alt={"ウサギを選択してる画像"} width={400}
+                               height={400}/>
                     </div>
 
                     <div className={"my-8 flex flex-col  items-center gap-6"}>
@@ -131,7 +146,8 @@ const TutorialPage = () => {
                         </div>
                         <div className={"flex"}>
                             <div className={"mx-auto flex flex-col gap-1"}>
-                                <Image src={getS3Url("/tutorial/real/WalkAction.gif")} alt={"腕を振ってる画像"} width={400} height={400}/>
+                                <Image src={getS3Url("/tutorial/real/WalkAction.gif")} alt={"腕を振ってる画像"}
+                                       width={400} height={400}/>
                                 {/*<Image src="/RabbitReal.gif" alt={"ゲーム内でジャンプしてる画像"} width={400}*/}
                                 {/*       height={400}/>*/}
                             </div>
@@ -148,7 +164,8 @@ const TutorialPage = () => {
                         </div>
                         <div className={"flex relative"}>
                             <div className={"mx-auto flex flex-col gap-1"}>
-                                <Image src={getS3Url("/tutorial/real/RabbitReal.gif")} alt={"real"} width={400} height={400}/>
+                                <Image src={getS3Url("/tutorial/real/RabbitReal.gif")} alt={"real"} width={400}
+                                       height={400}/>
                                 {/*TODO: rabbitのゲーム動画*/}
                                 {/*<Image src="/RabbitReal.gif" alt={"game"} width={400} height={400}/>*/}
 
@@ -161,7 +178,8 @@ const TutorialPage = () => {
                     <div className={"flex flex-col items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>キャラクター選択</div>
                         <div>選択画面からBirdを選んでください。</div>
-                        <Image src={getS3Url("/tutorial/game/select.png")} alt={"鳥を選択してる画像"} width={400} height={400}/>
+                        <Image src={getS3Url("/tutorial/game/select.png")} alt={"鳥を選択してる画像"} width={400}
+                               height={400}/>
                     </div>
                     <div className={"my-8 flex flex-col  items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>鳥の操作</div>
@@ -170,7 +188,8 @@ const TutorialPage = () => {
                         </div>
                         <div className={"flex relative"}>
                             <div className={"mx-auto flex gap-1"}>
-                                <Image src={getS3Url("/tutorial/real/WalkAction.gif")} alt={"ゲーム内で歩いてる画像"} width={400}
+                                <Image src={getS3Url("/tutorial/real/WalkAction.gif")} alt={"ゲーム内で歩いてる画像"}
+                                       width={400}
                                        height={400}/>
                             </div>
                         </div>
@@ -186,8 +205,10 @@ const TutorialPage = () => {
                         </div>
                         <div className={"flex relative"}>
                             <div className={"mx-auto flex flex-col gap-3"}>
-                                <Image src={getS3Url("/tutorial/real/BirdFlyReal.gif")} alt={"腕をバタバタさせてる様子"} width={400} height={400}/>
-                                <Image src={getS3Url("/tutorial/game/BirdFly.gif")} alt={"鳥が飛んでる画像"} width={400} height={400}/>
+                                <Image src={getS3Url("/tutorial/real/BirdFlyReal.gif")} alt={"腕をバタバタさせてる様子"}
+                                       width={400} height={400}/>
+                                <Image src={getS3Url("/tutorial/game/BirdFly.gif")} alt={"鳥が飛んでる画像"} width={400}
+                                       height={400}/>
                             </div>
                         </div>
                     </div>
@@ -196,7 +217,8 @@ const TutorialPage = () => {
                     <div className={"flex flex-col items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>キャラクター選択</div>
                         <div>選択画面からMouseを選んでください。</div>
-                        <Image src={getS3Url("/tutorial/game/select.png")} alt={"ネズミを選択してる画像"} width={400} height={400}/>
+                        <Image src={getS3Url("/tutorial/game/select.png")} alt={"ネズミを選択してる画像"} width={400}
+                               height={400}/>
                     </div>
                     <div className={"my-8 flex flex-col  items-center gap-6"}>
                         <div className={"text-2xl font-bold"}>ネズミの操作</div>
@@ -205,7 +227,8 @@ const TutorialPage = () => {
                         </div>
                         <div className={"flex relative"}>
                             <div className={"mx-auto flex gap-1"}>
-                                <Image src={getS3Url("/tutorial/real/WalkAction.gif")} alt={"腕を振ってる画像"} width={400} height={400}/>
+                                <Image src={getS3Url("/tutorial/real/WalkAction.gif")} alt={"腕を振ってる画像"}
+                                       width={400} height={400}/>
                             </div>
                         </div>
 
@@ -220,8 +243,10 @@ const TutorialPage = () => {
                         </div>
                         <div className={"flex relative"}>
                             <div className={"mx-auto flex flex-col gap-1"}>
-                                <Image src={getS3Url("/tutorial/real/MouseClimbReal.gif")} alt={"腕を振っている様子"} width={400} height={400}/>
-                                <Image src={getS3Url("/tutorial/game/MouseClimb.gif")} alt={"ネズミが壁を登っている様子"} width={400} height={400}/>
+                                <Image src={getS3Url("/tutorial/real/MouseClimbReal.gif")} alt={"腕を振っている様子"}
+                                       width={400} height={400}/>
+                                <Image src={getS3Url("/tutorial/game/MouseClimb.gif")}
+                                       alt={"ネズミが壁を登っている様子"} width={400} height={400}/>
                             </div>
                         </div>
                     </div>
