@@ -52,7 +52,7 @@ export const CharacterCard = (props: CharacterCardProps) => {
 		}
 	};
 	return (
-		<Card className={"sm:w-4xl flex flex-col my-4 p-0 mx-3 border-green-200"}>
+		<Card className={"sm:w-4xl flex flex-col my-4 p-0 mx-5 border-green-200"}>
 			<CardHeader
 				className={`bg-blue-50  items-center ${getAnimalTheme(props.animal)}`}
 			>
