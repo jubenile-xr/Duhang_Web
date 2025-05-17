@@ -4,6 +4,7 @@ import { FadeInSelection } from "@/components/fade-in-selection";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { QueList } from "@/features/que/componets/que-list";
 import { getS3Url } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -68,24 +69,30 @@ const TutorialPage = () => {
 
 	return (
 		<div className={"flex flex-col justify-center items-center"}>
-			<h1 className={"text-4xl text-green-500 font-medium"}>チュートリアル</h1>
-
-			<div className="m-4 text-center">
-				<Link href="/ranking">
-					<Button
-						variant="outline"
-						size="sm"
-						className="gap-1 bg-green-50 hover:bg-green-400 border-green-500"
-					>
-						ランキングを見る
-					</Button>
-				</Link>
-			</div>
-
-			<h2 className={"my-5 text-2xl text-green-500 font-medium"}>ストーリー</h2>
+			<FadeInSelection>
+				<h1 className={"text-4xl text-green-500 font-medium"}>
+					チュートリアル
+				</h1>
+				<div className="m-4 text-center">
+					<Link href="/ranking">
+						<Button
+							variant="outline"
+							size="sm"
+							className="gap-1 bg-green-50 hover:bg-green-400 border-green-500"
+						>
+							ランキングを見る
+						</Button>
+					</Link>
+				</div>
+			</FadeInSelection>
 
 			<FadeInSelection>
-				<Card className={"sm:w-4xl mx-3"}>
+				<h2 className={"my-5 text-2xl text-green-500 font-medium"}>
+					ストーリー
+				</h2>
+			</FadeInSelection>
+			<FadeInSelection>
+				<Card className={"sm:w-4xl mx-5"}>
 					<CardHeader>
 						<div
 							className={
@@ -117,13 +124,16 @@ const TutorialPage = () => {
 				</Card>
 			</FadeInSelection>
 
-			<h2 className={"my-10 text-2xl text-green-500 font-medium"}>
-				基本ルール
-			</h2>
+			<FadeInSelection>
+				<h2 className={"my-10 text-2xl text-green-500 font-medium"}>
+					基本ルール
+				</h2>
+			</FadeInSelection>
+
 			<FadeInSelection>
 				<Card
 					className={
-						"sm:w-4xl mx-3 px-2 flex flex-col justify-center items-center"
+						"sm:w-4xl mx-5 px-2 flex flex-col justify-center items-center"
 					}
 				>
 					<div className={"text-2xl font-bold"}>パンダ</div>
@@ -136,9 +146,12 @@ const TutorialPage = () => {
 				</Card>
 			</FadeInSelection>
 
-			<h2 className={"my-10 text-2xl text-green-500 font-medium"}>
-				動物毎の操作方法
-			</h2>
+			<FadeInSelection>
+				<h2 className={"my-10 text-2xl text-green-500 font-medium"}>
+					動物毎の操作方法
+				</h2>
+			</FadeInSelection>
+
 			<div className={"gap-6"}>
 				<FadeInSelection>
 					<CharacterCard animal={"panda"}>
@@ -251,7 +264,7 @@ const TutorialPage = () => {
 							<div className={"flex justify-center gap-6"}>
 								<div>腕をバタバタさせて空を飛ぼう!</div>
 								<motion.div variants={infiniteAnimalVariants} animate="fly">
-									<span className={"text-2xl"}>🕊️</span>
+									<span className={"text-2xl"}>🕊</span>
 								</motion.div>
 							</div>
 							<div className={"flex relative"}>
