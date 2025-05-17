@@ -11,18 +11,24 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-		<head>
-			<link rel="icon" href="icon.png" sizes="any"/>
-		</head>
-		<body className="max-h-screen bg-green-50">
-		<Link href={"/"}>
-		<div className="p-4 w-full flex items-center justify-center">
-			<Image src="/icon/panda.png" height={40} width={40} alt="Pandatorアイコン" className="mr-2"/>
-			<h1 className="text-center text-3xl text-green-600">Pandator</h1>
-		</div>
-		</Link>
-		{children}
-		</body>
+			<head>
+				<link rel="icon" href="icon.png" sizes="any" />
+			</head>
+			<body className="max-h-screen bg-green-50">
+				<Link href={"/"}>
+					<div className="p-4 w-full flex items-center justify-center">
+						<Image
+							src="/icon/panda.png"
+							height={40}
+							width={40}
+							alt="Pandatorアイコン"
+							className="mr-2"
+						/>
+						<h1 className="text-center text-3xl text-green-600">Pandator</h1>
+					</div>
+				</Link>
+				{children}
+			</body>
 		</html>
 	);
 }
