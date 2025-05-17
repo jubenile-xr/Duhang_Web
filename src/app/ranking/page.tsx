@@ -4,7 +4,7 @@ import { Loading } from "@/components/loading";
 import { RankingCard } from "@/components/ranking-card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { apiClient } from "@/lib/apiClient";
+import { apiClientForGAS } from "@/lib/api-client";
 import type { RankingType } from "@/types/ranking";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,7 +22,7 @@ export default function Home() {
 	const [mouseRankingData, setMouseRankingData] = useState<RankingType[]>([]);
 
 	useEffect(() => {
-		apiClient.get("").then((res) => {
+		apiClientForGAS.get("").then((res) => {
 			const data = res.data;
 			console.log(data);
 			// setSmallAnimalRankingData(data.filter((item: RankingType) => item.animal === "mouse" || item.animal === "rabbit" || item.animal === "bird").sort((a: RankingType, b: RankingType) => b.score - a.score).slice(0, 10));
@@ -110,7 +110,7 @@ export default function Home() {
 				<div className="mt-6 flex animate-bounce items-center justify-center text-2xl">
 					<span className="mr-2">🐼</span>
 					<span className="mr-2">🐰</span>
-					<span className="mr-2">🐦️</span>
+					<span className="mr-2">🐦</span>
 					<span>🐭</span>
 				</div>
 			)}
