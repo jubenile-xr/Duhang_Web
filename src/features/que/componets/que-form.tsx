@@ -57,7 +57,7 @@ export const QueForm = () => {
 								待ち番号を入力してください
 							</FormLabel>
 							<FormControl>
-								<Input placeholder="待ち番号" {...field} />
+								<Input type="number" placeholder="待ち番号" {...field} />
 							</FormControl>
 							{/*TODO: あとで色を変更*/}
 							<FormDescription className={"text-red-600"}>
