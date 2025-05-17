@@ -138,10 +138,10 @@ const TutorialPage = () => {
 				>
 					<div className={"text-2xl font-bold"}>パンダ</div>
 					<div>
-						パンダは、逃げ回る小動物達を銃で網を放ち、小動物を捕まえましょう！
+						2分間の間で、パンダは、逃げ回る小動物達を銃で網を放ち、小動物を捕まえましょう！
 					</div>
 					<div className={"text-2xl font-bold"}>小動物</div>
-					<div>小動物達は、パンダから捕まらないように逃げ切りましょう！</div>
+					<div>小動物達は、2分間の間で、パンダから捕まらないように逃げ切りましょう！</div>
 					<div>また、他の小動物へ妨害をして、自分が逃げ切りましょう！</div>
 				</Card>
 			</FadeInSelection>
@@ -155,19 +155,9 @@ const TutorialPage = () => {
 			<div className={"gap-6"}>
 				<FadeInSelection>
 					<CharacterCard animal={"panda"}>
-						<div className={"flex flex-col items-center gap-6"}>
-							<div className={"text-2xl font-bold"}>キャラクター選択</div>
-							<div>銃に接続されているAとBボタンを押してください。</div>
-							<Image
-								src={getS3Url("/tutorial/game/select.png")}
-								alt={"キャラクター選択画面"}
-								width={400}
-								height={400}
-							/>
-						</div>
 						<div className={"my-8 flex flex-col  items-center gap-6"}>
 							<div className={"text-2xl font-bold"}>パンダの操作</div>
-							<div>銃の引き金を引くと網が発射！</div>
+							<div>右コントローラのトリガー(銃の引き金)を引くと網が発射！</div>
 							<Image
 								src={getS3Url("/tutorial/game/PandaShotGame.gif")}
 								alt={"網が出ている様子"}
@@ -182,17 +172,6 @@ const TutorialPage = () => {
 
 				<FadeInSelection>
 					<CharacterCard animal={"rabbit"}>
-						<div className={"flex flex-col items-center gap-6"}>
-							<div className={"text-2xl font-bold"}>キャラクター選択</div>
-							<div>選択画面からRabbitを選んでください。</div>
-							<Image
-								src={getS3Url("/tutorial/game/select.png")}
-								alt={"ウサギを選択してる画像"}
-								width={400}
-								height={400}
-							/>
-						</div>
-
 						<div className={"my-8 flex flex-col  items-center gap-6"}>
 							<div className={"text-2xl font-bold"}>ウサギの操作</div>
 							<div className={"flex justify-center gap-6"}>
@@ -235,32 +214,8 @@ const TutorialPage = () => {
 
 				<FadeInSelection>
 					<CharacterCard animal={"bird"}>
-						<div className={"flex flex-col items-center gap-6"}>
-							<div className={"text-2xl font-bold"}>キャラクター選択</div>
-							<div>選択画面からBirdを選んでください。</div>
-							<Image
-								src={getS3Url("/tutorial/game/select.png")}
-								alt={"鳥を選択してる画像"}
-								width={400}
-								height={400}
-							/>
-						</div>
 						<div className={"my-8 flex flex-col  items-center gap-6"}>
 							<div className={"text-2xl font-bold"}>鳥の操作</div>
-							<div className={"flex justify-center gap-6"}>
-								<div>右スティックで歩こう！</div>
-							</div>
-							<div className={"flex relative"}>
-								<div className={"mx-auto flex gap-1"}>
-									<Image
-										src={getS3Url("/tutorial/real/WalkAction.gif")}
-										alt={"ゲーム内で歩いてる画像"}
-										width={400}
-										height={400}
-									/>
-								</div>
-							</div>
-
 							<div className={"flex justify-center gap-6"}>
 								<div>腕をバタバタさせて空を飛ぼう!</div>
 								<motion.div variants={infiniteAnimalVariants} animate="fly">
@@ -289,16 +244,6 @@ const TutorialPage = () => {
 
 				<FadeInSelection>
 					<CharacterCard animal={"mouse"}>
-						<div className={"flex flex-col items-center gap-6"}>
-							<div className={"text-2xl font-bold"}>キャラクター選択</div>
-							<div>選択画面からMouseを選んでください。</div>
-							<Image
-								src={getS3Url("/tutorial/game/select.png")}
-								alt={"ネズミを選択してる画像"}
-								width={400}
-								height={400}
-							/>
-						</div>
 						<div className={"my-8 flex flex-col  items-center gap-6"}>
 							<div className={"text-2xl font-bold"}>ネズミの操作</div>
 							<div className={"flex justify-center gap-6"}>
