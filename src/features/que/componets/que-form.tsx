@@ -26,7 +26,7 @@ export const QueForm = () => {
 	const onSubmit = (data: z.infer<typeof formSchema>) => {
 		// document.cookie = `queue_id=${data.queue_id}`;
 		setCookies("queue_id", data.queue_id);
-		// apiClient.get("/api/me");
+		apiClient.get("/api/me");
 	};
 	return (
 		<Form {...form}>
