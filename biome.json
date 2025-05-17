@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": [".next","**.css,**.json"]
+		"ignore": [".next","*.css,*.json"]
 	},
 	"formatter": {
 		"enabled": true,
