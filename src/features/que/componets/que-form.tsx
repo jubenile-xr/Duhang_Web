@@ -17,7 +17,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const formSchema = z.object({
-	queue_id: z.number().min(1),
+	queue_id: z.coerce.number().min(1),
 	password: z.string().min(1),
 });
 
