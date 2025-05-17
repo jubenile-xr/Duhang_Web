@@ -30,8 +30,9 @@ export const QueForm = () => {
 			path: "/",
 			maxAge: 86400,
 			secure: true,
-			sameSite: "strict",
+			sameSite: "none",
 		});
+		console.log(process.env.NEXT_PUBLIC_BACKEND_DOMAIN);
 		// apiClient.get("/api/me");
 	};
 	return (
