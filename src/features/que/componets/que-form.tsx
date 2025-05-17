@@ -26,7 +26,6 @@ export const QueForm = () => {
 	const onSubmit = (data: z.infer<typeof formSchema>) => {
 		// document.cookie = `queue_id=${data.queue_id}`;
 		setCookies("queue_id", data.queue_id, {
-			domain: process.env.NEXT_PUBLIC_BACKEND_DOMAIN,
 			path: "/",
 			maxAge: 86400,
 			secure: true,
