@@ -25,13 +25,7 @@ export const QueForm = () => {
 	const form = useForm<z.infer<typeof formSchema>>();
 	const onSubmit = (data: z.infer<typeof formSchema>) => {
 		// document.cookie = `queue_id=${data.queue_id}`;
-		setCookies("queue_id", data.queue_id, {
-			path: "/",
-			maxAge: 86400,
-			secure: true,
-			sameSite: "none",
-		});
-		console.log(process.env.NEXT_PUBLIC_BACKEND_DOMAIN);
+		setCookies("queue_id", data.queue_id);
 		// apiClient.get("/api/me");
 	};
 	return (
