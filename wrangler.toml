@@ -7,3 +7,9 @@ schema = "node_modules/wrangler/config-schema.json"
 [assets]
 directory = ".open-next/assets"
 binding = "ASSETS"
+
+[observability.logs]
+enabled = true
+
+
+

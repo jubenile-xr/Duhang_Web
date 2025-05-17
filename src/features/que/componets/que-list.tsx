@@ -131,7 +131,7 @@ export const QueList = () => {
 						<AnimatePresence mode="wait">
 							<motion.div key={updateCount}>
 								<div className="flex justify-center gap-10">
-									{queue?.next_next_group.map((group, i) => (
+									{queue?.next_next_group?.map((group, i) => (
 										<motion.div
 											key={`next-next-group-${group}`}
 											initial={{ opacity: 0, y: 10 }}
