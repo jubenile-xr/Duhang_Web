@@ -10,24 +10,41 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { apiClient } from "@/lib/api-client";
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useCookies } from "react-cookie";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const formSchema = z.object({
 	queue_id: z.number().min(1),
+	password: z.string().min(1),
 });
 
 export const QueForm = () => {
 	const [cookies, setCookies] = useCookies();
+	const [errorMessage, setErrorMessage] = useState<string>('');
 
-	const form = useForm<z.infer<typeof formSchema>>();
+	const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            queue_id: undefined,
+            password: "",
+        },
+    });
 	const onSubmit = (data: z.infer<typeof formSchema>) => {
-		// document.cookie = `queue_id=${data.queue_id}`;
-		setCookies("queue_id", data.queue_id);
-		// apiClient.get("/api/me");
-	};
+        // 環境変数からパスワードを取得
+        const correctPassword = process.env.NEXT_PUBLIC_PASSWORD;
+        // パスワードの照合
+        if (data.password === correctPassword) {
+            // パスワードが正しい場合、Cookieを設定
+            setCookies("queue_id", data.queue_id.toString(), { path: "/" });
+            setErrorMessage(''); // エラーメッセージをクリア
+        } else {
+            // パスワードが間違っている場合、エラーメッセージを設定
+            setErrorMessage('パスワードが正しくありません');
+        }
+    };
 	return (
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)} className="p-10">
@@ -50,6 +67,26 @@ export const QueForm = () => {
 						</FormItem>
 					)}
 				/>
+				<FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className={"text-green-600 text-2xl"}>
+                                パスワードを入力してください
+                            </FormLabel>
+                            <FormControl>
+                                <Input type="password" placeholder="パスワード" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                {errorMessage && (
+                    <div className="text-red-600 text-center mt-4">
+                        <p>{errorMessage}</p>
+                    </div>
+                )}
 				<div className="my-5 flex justify-center">
 					<Button type="submit" className={"bg-green-600"}>
 						Submit
