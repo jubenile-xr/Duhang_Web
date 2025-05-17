@@ -1,39 +1,38 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
+	Form,
+	FormControl,
+	FormDescription,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useCookies } from "react-cookie";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 
 const formSchema = z.object({
-    queue_id: z.coerce.number().min(1, "待ち番号は1以上の数字を入力してください"),
-    password: z.string().min(1, "パスワードを入力してください"),
+	queue_id: z.number().min(1),
+	password: z.string().min(1),
 });
 
 export const QueForm = () => {
-    const [cookies, setCookies] = useCookies(["queue_id"]);
-    const [errorMessage, setErrorMessage] = useState<string>('');
+	const [cookies, setCookies] = useCookies();
+	const [errorMessage, setErrorMessage] = useState<string>('');
 
-    const form = useForm<z.infer<typeof formSchema>>({
+	const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             queue_id: undefined,
             password: "",
         },
     });
-
-    const onSubmit = (data: z.infer<typeof formSchema>) => {
+	const onSubmit = (data: z.infer<typeof formSchema>) => {
         // 環境変数からパスワードを取得
         const correctPassword = process.env.NEXT_PUBLIC_PASSWORD;
         // パスワードの照合
@@ -46,29 +45,29 @@ export const QueForm = () => {
             setErrorMessage('パスワードが正しくありません');
         }
     };
-
-    return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="p-10">
-                <FormField
-                    control={form.control}
-                    name="queue_id"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel className={"text-green-600 text-2xl"}>
-                                待ち番号を入力してください
-                            </FormLabel>
-                            <FormControl>
-                                <Input type="number" placeholder="待ち番号" {...field} />
-                            </FormControl>
-                            <FormDescription className={"text-red-600"}>
-                                待ち番号を入力すると、現在の待ち状況がわかります
-                            </FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
+	return (
+		<Form {...form}>
+			<form onSubmit={form.handleSubmit(onSubmit)} className="p-10">
+				<FormField
+					control={form.control}
+					name="queue_id"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel className={"text-green-600 text-2xl"}>
+								待ち番号を入力してください
+							</FormLabel>
+							<FormControl>
+								<Input placeholder="待ち番号" {...field} />
+							</FormControl>
+							{/*TODO: あとで色を変更*/}
+							<FormDescription className={"text-red-600"}>
+								待ち番号を入力すると、現在の待ち状況がわかります
+							</FormDescription>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<FormField
                     control={form.control}
                     name="password"
                     render={({ field }) => (
@@ -88,12 +87,12 @@ export const QueForm = () => {
                         <p>{errorMessage}</p>
                     </div>
                 )}
-                <div className="my-5 flex justify-center">
-                    <Button type="submit" className={"bg-green-600"}>
-                        送信
-                    </Button>
-                </div>
-            </form>
-        </Form>
-    );
+				<div className="my-5 flex justify-center">
+					<Button type="submit" className={"bg-green-600"}>
+						Submit
+					</Button>
+				</div>
+			</form>
+		</Form>
+	);
 };
