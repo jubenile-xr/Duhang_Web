@@ -57,7 +57,7 @@ export const QueList = () => {
 
 	useEffect(() => {
 		if (!cookies.queue_id) return;
-		apiClient.get("api/me").then((res) => {
+		apiClient.get(`api/me?queue_id=${cookies.queue_id}`).then((res) => {
 			const data = res.data;
 			if (data) {
 				setMyQueueData(data);
