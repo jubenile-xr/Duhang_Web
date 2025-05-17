@@ -13,7 +13,7 @@ import { useCookies } from "react-cookie";
 export const QueList = () => {
 	const [queue, setQueue] = useState<AllQueueSchema | null>(null);
 	const [myQueueData, setMyQueueData] = useState<MyQueueSchema | null>(null);
-	const [cookies] = useCookies(["queue_id"]);
+	const [cookies, setCookies, removeCookie] = useCookies(["queue_id"]);
 	const [updateCount, setUpdateCount] = useState(0);
 
 	const handleUpdate = () => {
@@ -23,6 +23,19 @@ export const QueList = () => {
 				setQueue(data);
 				setUpdateCount(updateCount + 1);
 			}
+		});
+	};
+	const handleCancel = () => {
+		const queueId = cookies.queue_id;
+		removeCookie("queue_id");
+		apiClient.delete(`/api/delete?id=${queueId}`).then((res) => {
+			apiClient.get("/api/all").then((res) => {
+				const data = res.data;
+				if (data) {
+					setQueue(data);
+					setUpdateCount(updateCount + 1);
+				}
+			});
 		});
 	};
 
@@ -99,6 +112,16 @@ export const QueList = () => {
 										</div>
 									</motion.div>
 								</AnimatePresence>
+
+								<div className={"flex justify-center"}>
+									<Button
+										className="w-32 bg-red-600 hover:bg-red-700"
+										onClick={handleCancel}
+									>
+										キャンセルする
+										<RotateCw />
+									</Button>
+								</div>
 							</>
 						) : (
 							<QueForm />
